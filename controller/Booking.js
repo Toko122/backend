@@ -1,6 +1,6 @@
 const Booking = require('../model/booking');
 
-exports.booking = async (req, res) => {
+const booking = async (req, res) => {
     const {name, date, lastname, phone, doctor, service} = req.body
 
     if(!name || !date || !lastname || !phone || !doctor || !service){
@@ -20,3 +20,5 @@ exports.booking = async (req, res) => {
         res.status(400).json({message: "Error Appointment", error: err.message})
     }
 }
+
+module.exports = { booking };

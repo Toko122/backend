@@ -1,6 +1,8 @@
-const express = require('express')
-const router = express.Router()
-const {allAppointment} = require('../controller/Admin')
-const {protect} = require('../middleware/protect')
+const express = require('express');
+const router = express.Router();
+const { allAppointment } = require('../controller/Admin');
+const { protect } = require('../middleware/protect');
 
-router.get('/appointment', protect, allAppointment)
+router.get('/appointment', protect, allAppointment);
+
+module.exports = router;
