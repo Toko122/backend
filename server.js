@@ -2,9 +2,15 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose');
+
+
 const userRouter = require('./router/UserRouter');
 const bookingRouter = require('./router/BookingRouter');
 const adminRouter = require('./router/AdminRouter');
+const ratingRouter = require('./router/RatingRouter')
+const contactRouter = require('./router/ContactRouter');
+const contact = require('./model/contact');
+
 
 const app = express();
 dotenv.config();
@@ -15,6 +21,8 @@ app.use(express.json());
 app.use('/api/users', userRouter);
 app.use('/api/appointments', bookingRouter);
 app.use('/api/admin/dashboard', adminRouter);
+app.use('/api/rating', ratingRouter)
+app.use('/api/user', contactRouter)
 
 const PORT = process.env.PORT || 5000;
 
