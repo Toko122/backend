@@ -9,7 +9,7 @@ const bookingRouter = require('./router/BookingRouter');
 const adminRouter = require('./router/AdminRouter');
 const ratingRouter = require('./router/RatingRouter')
 const contactRouter = require('./router/ContactRouter');
-const contact = require('./model/contact');
+
 
 
 const app = express();
@@ -20,9 +20,9 @@ app.use(express.json());
 
 app.use('/api/users', userRouter);
 app.use('/api/appointments', bookingRouter);
-app.use('/api/admin/dashboard', adminRouter);
+app.use('/api/admin', adminRouter);
 app.use('/api/rating', ratingRouter)
-app.use('/api/user', contactRouter)
+app.use('/api/userContact', contactRouter)
 
 const PORT = process.env.PORT || 5000;
 

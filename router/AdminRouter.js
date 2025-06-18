@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { allAppointment, getUserCount,  } = require('../controller/Admin');
-const protect  = require('../middleware/protect');
+const { getUserCount, allAppointment, countContact } = require('../controller/Admin');
 
-router.get('/appointment', protect, allAppointment);
-router.get('/userStats', getUserCount);
-
+router.get('/dashboard/userStats', getUserCount);         
+router.get('/dashboard/appointment', allAppointment);     
+router.get('/dashboard/conntact', countContact); 
 
 module.exports = router;
