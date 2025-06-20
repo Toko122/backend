@@ -1,6 +1,6 @@
 const Booking = require('../model/booking');
 
-const booking = async (req, res) => {
+exports.booking = async (req, res) => {
     const {name, date, lastname, phone, service} = req.body
 
     if(!name || !date || !lastname || !phone || !service){
@@ -21,4 +21,11 @@ const booking = async (req, res) => {
     }
 }
 
-module.exports = { booking };
+exports.getBooking = async (req, res) => {
+     try{
+        const booking = await Booking.find().sort({createdAt: -1})
+        res.status(200).json({booking})
+     }catch(err){
+        res.status(500).json({message: "Error Get Booking", error: err.message})
+     }
+}

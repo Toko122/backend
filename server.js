@@ -21,8 +21,9 @@ app.use(express.json());
 app.use('/api/users', userRouter);
 app.use('/api/appointments', bookingRouter);
 app.use('/api/admin', adminRouter);
-app.use('/api/rating', ratingRouter)
-app.use('/api/userContact', contactRouter)
+app.use('/api/rating', ratingRouter);
+app.use('/api/userContact', contactRouter);
+
 
 const PORT = process.env.PORT || 5000;
 

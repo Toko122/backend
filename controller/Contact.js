@@ -15,3 +15,13 @@ exports.postContacts = async (req, res) => {
         res.status(500).json({message: "Failed sending message"})
      }
 }
+
+exports.getContacts = async (req, res) => {
+     try{
+        const contacts = await Contact.find().sort({createdAt: -1})
+        res.status(200).json({contacts})
+     }catch(err){
+        console.error("Error fetching contacts:", err);
+    res.status(500).json({ message: "Failed to fetch contacts" });
+     }
+}
