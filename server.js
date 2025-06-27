@@ -10,6 +10,7 @@ const adminRouter = require('./router/AdminRouter');
 const ratingRouter = require('./router/RatingRouter')
 const contactRouter = require('./router/ContactRouter');
 
+const resetPasswordRouter = require('./router/emailRouter')
 
 
 const app = express();
@@ -23,6 +24,8 @@ app.use('/api/appointments', bookingRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/rating', ratingRouter);
 app.use('/api/userContact', contactRouter);
+
+app.use('/api/reset-password', resetPasswordRouter)
 
 
 const PORT = process.env.PORT || 5000;

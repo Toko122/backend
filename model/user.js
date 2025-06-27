@@ -8,6 +8,8 @@ const userSchema = new mongodb.Schema({
     year: {type: String, required: true},
     phone: {type: String, required: true},
     email: {type: String, required: true, unique: true},
+    resetToken: {type: String},
+    resetTokenExpire: {type: Date}
 })
 
 module.exports = mongodb.model("User", userSchema)
